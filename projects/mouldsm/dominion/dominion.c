@@ -661,8 +661,9 @@ int cardAdventurer(int card, int choice1, int choice2, int choice3, struct gameS
   if (nextPlayer > (state->numPlayers - 1)){
     nextPlayer = 0;
   }
-
-      while(drawntreasure<2){
+//Introductin game logic bug
+      while(drawntreasure<3){
+//      while(drawntreasure<2){
         if (state->deckCount[currentPlayer] <1){//if the deck is empty we need to shuffle discard and add to deck
           shuffle(currentPlayer, state);
         }
@@ -702,7 +703,9 @@ int cardSmithy(int card, int choice1, int choice2, int choice3, struct gameState
     nextPlayer = 0;
   }
       //+3 Cards
-      for (i = 0; i < 3; i++)
+//introducing game logic errpr
+      for (i = 0; i < 2; i++)
+//     for (i = 0; i < 3; i++)
         {
           drawCard(currentPlayer, state);
         }
@@ -780,6 +783,7 @@ int cardFeast(int card, int choice1, int choice2, int choice3, struct gameState 
       }
       //Backup hand
 //Update Coins for Buy
+
       updateCoins(currentPlayer, state, 5);
       x = 1;//Condition to loop on
       while( x == 1) {//Buy one card
@@ -805,7 +809,10 @@ int cardFeast(int card, int choice1, int choice2, int choice3, struct gameState 
           }
 
           gainCard(choice1, state, 0, currentPlayer);//Gain the card
-          x = 0;//No more buying cards
+          
+          //inducing bug - endless looping?
+          x = 1;//No more buying cards
+          // x = 0; //No more buying cards.	
 
           if (DEBUG){
             printf("Deck Count: %d\n", state->handCount[currentPlayer] + state->deckCount[currentPlayer] + state->discardCount[currentPlayer]);
@@ -846,8 +853,9 @@ int cardMine(int card, int choice1, int choice2, int choice3, struct gameState *
         {
           return -1;
         }
-
-      if (choice2 > treasure_map || choice2 < curse)
+// Introducing bug
+      if (choice2 > treasure_map && choice2 < curse)
+//      if (choice2 > treasure_map || choice2 < curse)
         {
           return -1;
         }
