@@ -1,4 +1,4 @@
-/* unit test for stub function */
+/* unit test for playCard function */
 #include "asserttrue.h"
 #include "dominion.h"
 
