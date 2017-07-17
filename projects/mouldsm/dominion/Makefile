@@ -30,10 +30,16 @@ runtests: testDrawCard
 	cat dominion.c.gcov >> unittestresult.out
 
 unittestresults.out: all
-	gcc -o testing asserttrue.c unittest1.c -g dominion.o rngs.o $(CFLAGS)
-	./testing &> unittestresults.out
+	rm -f unittestresults.out
+	$(foreach a, $(Tests), gcc -o testing asserttrue.c $(a) -g dominion.o rngs.o $(CFLAGS) ; \
+	./testing >> unittestresults.out ;)
 	gcov dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
+	echo $(Tests)
+#Tests = unittest4.c
+
+Tests:=$(shell ls  | egrep '*test[0-9]+.c' | sort -n  )
+
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
