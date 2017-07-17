@@ -21,11 +21,19 @@ int main() {
 	
 	state.deck[0][handPos] = smithy;
 	int temp = state.numActions;
-	/*state.deck[0][handPos + 1] = adventurer; */
-
+	int ret = 0;
 	/*testing smithy */
-	playCard(handPos, choice1, choice2, choice3, &state);
+	ret = playCard(handPos, choice1, choice2, choice3, &state);
 	asserttrue(state.numActions, temp);
+	asserttrue(state.deck[0][handPos], smithy);
+	state.deck[0][handPos] = estate;
+	int nextCard = state.deck[0][handPos];
+	int nexterCard = state.deck[0][handPos]; 
+	ret = playCard(handPos, choice1, choice2, choice3, &state);
+	asserttrue(state.deck[0][handPos], estate);
+	asserttrue(state.deck[0][handPos], nextCard);
+	asserttrue(nextCard, nexterCard);
+	/*asserttrue(state.deck[0][4], smithy); */
 
 }
 

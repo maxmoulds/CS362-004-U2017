@@ -1,4 +1,4 @@
-/* unit test for stub function */
+/* unit test for shuffle */
 #include "asserttrue.h"
 #include "dominion.h"
 

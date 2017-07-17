@@ -36,9 +36,10 @@ unittestresults.out: all
 	gcov dominion.c >> unittestresults.out
 	cat dominion.c.gcov >> unittestresults.out
 	echo $(Tests)
-Tests = cardtest3.c
 
-#Tests:=$(shell ls  | egrep '*test[0-9]+.c' | sort -n  )
+#Tests = cardtest4.c
+
+Tests:=$(shell ls  | egrep '*test[0-9]+.c' | sort -n  )
 
 
 player: player.c interface.o
