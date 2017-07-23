@@ -37,7 +37,7 @@ void testme()
   char *s;
   char c;
   int state = 0;
-  while (1 && tcCount < 127512000+1)
+  while (1)
   {
     tcCount++;
     c = inputChar();
