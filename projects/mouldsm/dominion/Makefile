@@ -41,6 +41,32 @@ unittestresults.out: all
 
 Tests:=$(shell ls  | egrep '*test[0-9]+.c' | sort -n  )
 
+randomtestcard1: randomtestcard1.c dominion.o rngs.o testHelpers.o
+	gcc -o randomtestcard1 -g  randomtestcard1.c dominion.o rngs.o testHelpers.o $(CFLAGS)
+
+randomtestcard2: randomtestcard2.c dominion.o rngs.o testHelpers.o
+	gcc -o randomtestcard2 -g  randomtestcard2.c dominion.o rngs.o testHelpers.o $(CFLAGS)
+
+randomtestadventurer: randomtestadventurer.c dominion.o rngs.o testHelpers.o
+	gcc -o randomtestadventurer -g  randomtestadventurer.c dominion.o rngs.o testHelpers.o $(CFLAGS)
+
+randomtestcard1.out: randomtestcard1
+	./randomtestcard1 >> randomtestcard1.out
+	gcov -c -b dominion.c >> randomtestcard1.out
+	cat dominion.c.gcov >> randomtestcard1.out
+
+randomtestcard2.out: randomtestcard2
+	./randomtestcard2 >> randomtestcard2.out
+	gcov -c -b dominion.c >> randomtestcard2.out
+	cat dominion.c.gcov >> randomtestcard2.out
+
+randomtestadventurer.out: randomtestadventurer
+	./randomtestadventurer >> randomtestadventurer.out
+	gcov -c -b dominion.c >> randomtestadventurer.out
+	cat dominion.c.gcov >> randomtestadventurer.out
+
+randomtester: randomtestadventurer randomtestadventurer.out
+#randomtester: randomtestadventurer randomtestcard1 randomtestcard2 randomtestadventurer.out randomtestcard1.out randomtestcard2.out
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
@@ -49,3 +75,4 @@ all: playdom player testDrawCard testBuyCard badTestDrawCard
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
+	rm -f randomtestcard1 randomtestcard2 randomtestadventurer 
