@@ -1,4 +1,4 @@
-CFLAGS = -fpic -coverage -lm
+CFLAGS = -Wno-implicit -fpic -coverage -lm
 
 SHELL:=/bin/bash
 
@@ -71,15 +71,21 @@ randomtestadventurer.out: randomtestadventurer
 	cat randomtestadventurer.c.gcov >> randomtestadventurer.out
 
 randomtester0: randomtestadventurer randomtestadventurer.out
+	@echo "COMPILING & RUNNING ADVENTURER TESTS"
+
 randomtester1: randomtestcard1 randomtestcard1.out
+	@echo "COMPILING & RUNNING COUNCIL ROOM TESTS"
+
 randomtester2: randomtestcard2 randomtestcard2.out
-randomtester:
-	$(shell time -p bash -c 'make clean && make randomtester0 && tail -n $(($(cat randomtestadventurer.c.gcov | wc -l)+15)) randomtestadventurer.out | head')
+	@echo "COMPILING & RUNNING SMITHY TESTS"
 
+randomtestall: randomtester0 randomtester1 randomtester2
+	@echo "COMPILING ALL RANDOM TESTER"
 
-Adventurer:=$(shell time -p bash -c 'make clean && make randomtester0 && tail -n $(($(cat randomtestadventurer.c.gcov | wc -l)+15)) randomtestadventurer.out | head')
-Councilroom:=$(shell time -p bash -c 'make clean && make randomtester1 && tail -n $(($(cat randomtestcard1.c.gcov | wc -l)+15)) randomtestcard1.out | head')
-Smithy:=$(shell time -p bash -c 'make clean && make randomtester2 && tail -n $(($(cat randomtestcard2.c.gcov | wc -l)+15)) randomtestcard2.out | head')
+#I was planning on making a one command to rule them all but...
+#time -p bash -c 'make clean && make randomtester0 && tail -n $(($(cat randomtestadventurer.c.gcov | wc -l)+15)) randomtestadventurer.out | head'
+#time -p bash -c 'make clean && make randomtester1 && tail -n $(($(cat randomtestcard1.c.gcov | wc -l)+15)) randomtestcard1.out | head'
+#time -p bash -c 'make clean && make randomtester2 && tail -n $(($(cat randomtestcard2.c.gcov | wc -l)+15)) randomtestcard2.out | head'
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
@@ -87,5 +93,8 @@ player: player.c interface.o
 all: playdom player testDrawCard testBuyCard badTestDrawCard
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so testDrawCard testDrawCard.exe
 	rm -f randomtestcard1 randomtestcard2 randomtestadventurer 
+
+cleaner: clean
+	rm -f *.out
