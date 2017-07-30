@@ -2,20 +2,55 @@
 #include "asserttrue.h"
 #include "dominion.h"
 
+//extern int count[2];
+char * CARD_STRING[] =
+  {"curse",
+   "estate",
+   "duchy",
+   "province",
+   "copper",
+   "silver",
+   "gold",
+   "adventurer",
+   /* If no/only 1 treasure found, stop when full deck seen */
+   "council_room",
+   "feast", /* choice1 is supply # of card gained) */
+   "gardens",
+   "mine", /* choice1 is hand# of money to trash, choice2 is supply# of money to put in hand */
+   "remodel", /* choice1 is hand# of card to remodel, choice2 is supply# */
+   "smithy",
+   "village",
+
+   "baron", /* choice1: boolean for discard of estate */
+   /* Discard is always of first (lowest index) estate */
+   "great_hall",
+   "minion", /* choice1:  1 = +2 coin, 2 = redraw */
+   "steward", /* choice1: 1 = +2 card, 2 = +2 coin, 3 = trash 2 (choice2,3) */
+   "tribute",
+
+   "ambassador", /* choice1 = hand#, choice2 = number to return to supply */
+   "cutpurse",
+   "embargo", /* choice1 = supply# */
+   "outpost",
+   "salvager", /* choice1 = hand# to trash */
+   "sea_hag",
+   "treasure_map"
+  }; 
+
 int asserttrue(int a, int b, char * str) {
   if (a != b) {
-    printf("TEST %d FAILED %d != %d :: %s\n", count[1]+1, a, b, str);
-    count[1] += 1;
+    printf("TEST %d FAILED %d != %d :: %s\n", total+1, a, b, str);
+    total += 1;
     return -1;
   }
   else if (a == b) {
-    printf("TEST %d SUCCESSFULLY PASSED %d == %d :: %s\n", count[1]+1, a, b, str);
-    count[0] += 1;
-    count[1] += 1;
+    printf("TEST %d SUCCESSFULLY PASSED %d == %d :: %s\n", count+1, a, b, str);
+    count += 1;
+    total += 1;
     return 0;
   } 
   else {
-    printf("TEST %d FAILED ERR :: %s\n", count[1]+1, str);
+    printf("TEST %d FAILED ERR :: %s\n", count+1, str);
     return -2;
   }
 }

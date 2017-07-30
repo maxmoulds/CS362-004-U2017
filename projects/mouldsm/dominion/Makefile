@@ -42,7 +42,7 @@ unittestresults.out: all
 Tests:=$(shell ls  | egrep '*test[0-9]+.c' | sort -n  )
 
 asserttrue.o: asserttrue.h asserttrue.c
-		gcc -c asserttrue.c -g  $(CFLAGS)
+		gcc -c asserttrue.c -g dominion.o rngs.o  $(CFLAGS)
 
 randomtestcard1: randomtestcard1.c dominion.o rngs.o asserttrue.o
 	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o asserttrue.o $(CFLAGS)
@@ -55,8 +55,8 @@ randomtestadventurer: randomtestadventurer.c dominion.o rngs.o asserttrue.o
 
 randomtestcard1.out: randomtestcard1
 	./randomtestcard1 >> randomtestcard1.out
-	gcov -c -b dominion.c >> randomtestcard1.out
-	cat dominion.c.gcov >> randomtestcard1.out
+	gcov -c -b randomtestcard1.c >> randomtestcard1.out
+	cat randomtestcard1.c.gcov >> randomtestcard1.out
 
 randomtestcard2.out: randomtestcard2
 	./randomtestcard2 >> randomtestcard2.out
@@ -68,7 +68,7 @@ randomtestadventurer.out: randomtestadventurer
 	gcov -c -b randomtestadventurer.c >> randomtestadventurer.out
 	cat randomtestadventurer.c.gcov >> randomtestadventurer.out
 
-randomtester: randomtestadventurer randomtestadventurer.out
+randomtester: randomtestcard1 randomtestcard1.out
 #randomtester: randomtestadventurer randomtestcard1 randomtestcard2 randomtestadventurer.out randomtestcard1.out randomtestcard2.out
 
 player: player.c interface.o
