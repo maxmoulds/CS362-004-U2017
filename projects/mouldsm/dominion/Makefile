@@ -1,4 +1,4 @@
-CFLAGS = -Wall -fpic -coverage -lm
+CFLAGS = -fpic -coverage -lm
 
 rngs.o: rngs.h rngs.c
 	gcc -c rngs.c -g  $(CFLAGS)
@@ -41,14 +41,17 @@ unittestresults.out: all
 
 Tests:=$(shell ls  | egrep '*test[0-9]+.c' | sort -n  )
 
-randomtestcard1: randomtestcard1.c dominion.o rngs.o testHelpers.o
-	gcc -o randomtestcard1 -g  randomtestcard1.c dominion.o rngs.o testHelpers.o $(CFLAGS)
+asserttrue.o: asserttrue.h asserttrue.c
+		gcc -c asserttrue.c -g  $(CFLAGS)
 
-randomtestcard2: randomtestcard2.c dominion.o rngs.o testHelpers.o
-	gcc -o randomtestcard2 -g  randomtestcard2.c dominion.o rngs.o testHelpers.o $(CFLAGS)
+randomtestcard1: randomtestcard1.c dominion.o rngs.o asserttrue.o
+	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o asserttrue.o $(CFLAGS)
 
-randomtestadventurer: randomtestadventurer.c dominion.o rngs.o testHelpers.o
-	gcc -o randomtestadventurer -g  randomtestadventurer.c dominion.o rngs.o testHelpers.o $(CFLAGS)
+randomtestcard2: randomtestcard2.c dominion.o rngs.o asserttrue.o
+	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o asserttrue.o $(CFLAGS)
+
+randomtestadventurer: randomtestadventurer.c dominion.o rngs.o asserttrue.o
+	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o asserttrue.o $(CFLAGS)
 
 randomtestcard1.out: randomtestcard1
 	./randomtestcard1 >> randomtestcard1.out
@@ -62,8 +65,8 @@ randomtestcard2.out: randomtestcard2
 
 randomtestadventurer.out: randomtestadventurer
 	./randomtestadventurer >> randomtestadventurer.out
-	gcov -c -b dominion.c >> randomtestadventurer.out
-	cat dominion.c.gcov >> randomtestadventurer.out
+	gcov -c -b randomtestadventurer.c >> randomtestadventurer.out
+	cat randomtestadventurer.c.gcov >> randomtestadventurer.out
 
 randomtester: randomtestadventurer randomtestadventurer.out
 #randomtester: randomtestadventurer randomtestcard1 randomtestcard2 randomtestadventurer.out randomtestcard1.out randomtestcard2.out
