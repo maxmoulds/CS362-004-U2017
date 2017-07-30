@@ -2,6 +2,8 @@
 #include "asserttrue.h"
 #include "dominion.h"
 #include <string.h>
+#include <stdlib.h>
+#include <time.h>
 /* Reveal cards from your deck until you reveal 2 Treasure cards. Put those
  * Treasure cards into your hand and discard the other revealed cards. */
 
@@ -12,12 +14,15 @@
 
 #define IS_TREASURE (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
 
-extern int count[2]; /* yes... im bad */
+//extern int count[2]; /* yes... im bad */
+int total = 0;
+int count = 0;
 
 int main() {
   int numPlayers = 2; //? test this?
   struct gameState state; // no
   int randomSeed = 1; //hmm
+  srand(time(NULL));
   int kingdomCards[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse, sea_hag, tribute, smithy};
   //initializeGame(numPlayers, kingdomCards, randomSeed, &state);
   int drawntreasure = 0; //used to count how many treasures have been drawn
@@ -95,9 +100,10 @@ int main() {
   memcpy(&one_turn_ref2, &ref, sizeof(struct gameState)); 
   int j = 0;
   int rando = 1;
-  for (i = 0; i < RANDOM_TURN_GAMES; i++) {
+  int game_rando = rand() % RANDOM_TURN_GAMES + 1;
+  for (i = 0; i < game_rando; i++) {
     /*get a random nnumber */
-    rando = rand() % RANDOM_GAME_RANDOM_TURNS; /* not right but im aokey widit */
+    rando = rand() % RANDOM_GAME_RANDOM_TURNS + 1; /* not right but im aokey widit */
     for (j = 0; j < rando; j++) {
       drawntreasure = 0;
       bonus = 0;
@@ -120,6 +126,6 @@ int main() {
   //
   /*also if the seed changes, i'd hope this test would fail, but....*/
   /* All done, how'd I do? */
-  asserttrue(count[0], count[1], "(tests passed == total tests) DID WE WIN?");
+  asserttrue(count, total, "(tests passed == total tests) DID WE WIN?");
 }
 

@@ -1,5 +1,7 @@
 CFLAGS = -fpic -coverage -lm
 
+SHELL:=/bin/bash
+
 rngs.o: rngs.h rngs.c
 	gcc -c rngs.c -g  $(CFLAGS)
 
@@ -42,7 +44,7 @@ unittestresults.out: all
 Tests:=$(shell ls  | egrep '*test[0-9]+.c' | sort -n  )
 
 asserttrue.o: asserttrue.h asserttrue.c
-		gcc -c asserttrue.c -g dominion.o rngs.o  $(CFLAGS)
+		gcc -c asserttrue.c -g $(CFLAGS)
 
 randomtestcard1: randomtestcard1.c dominion.o rngs.o asserttrue.o
 	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o asserttrue.o $(CFLAGS)
@@ -60,16 +62,24 @@ randomtestcard1.out: randomtestcard1
 
 randomtestcard2.out: randomtestcard2
 	./randomtestcard2 >> randomtestcard2.out
-	gcov -c -b dominion.c >> randomtestcard2.out
-	cat dominion.c.gcov >> randomtestcard2.out
+	gcov -c -b randomtestcard2.c >> randomtestcard2.out
+	cat randomtestcard2.c.gcov >> randomtestcard2.out
 
 randomtestadventurer.out: randomtestadventurer
 	./randomtestadventurer >> randomtestadventurer.out
 	gcov -c -b randomtestadventurer.c >> randomtestadventurer.out
 	cat randomtestadventurer.c.gcov >> randomtestadventurer.out
 
-randomtester: randomtestcard1 randomtestcard1.out
-#randomtester: randomtestadventurer randomtestcard1 randomtestcard2 randomtestadventurer.out randomtestcard1.out randomtestcard2.out
+randomtester0: randomtestadventurer randomtestadventurer.out
+randomtester1: randomtestcard1 randomtestcard1.out
+randomtester2: randomtestcard2 randomtestcard2.out
+randomtester:
+	$(shell time -p bash -c 'make clean && make randomtester0 && tail -n $(($(cat randomtestadventurer.c.gcov | wc -l)+15)) randomtestadventurer.out | head')
+
+
+Adventurer:=$(shell time -p bash -c 'make clean && make randomtester0 && tail -n $(($(cat randomtestadventurer.c.gcov | wc -l)+15)) randomtestadventurer.out | head')
+Councilroom:=$(shell time -p bash -c 'make clean && make randomtester1 && tail -n $(($(cat randomtestcard1.c.gcov | wc -l)+15)) randomtestcard1.out | head')
+Smithy:=$(shell time -p bash -c 'make clean && make randomtester2 && tail -n $(($(cat randomtestcard2.c.gcov | wc -l)+15)) randomtestcard2.out | head')
 
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
