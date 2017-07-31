@@ -127,5 +127,6 @@ int main() {
   /*also if the seed changes, i'd hope this test would fail, but....*/
   /* All done, how'd I do? */
   asserttrue(count, total, "(tests passed == total tests) DID WE WIN?");
+  return 0;
 }
 
