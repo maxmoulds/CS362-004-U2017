@@ -60,7 +60,11 @@ cardtest4: cardtest4.c dominion.o rngs.o test_helpers.o
 	gcc -g -o cardtest4 cardtest4.c dominion.o rngs.o test_helpers.o $(CFLAGS)
 
 randomtestadventurer: randomtestadventurer.c dominion.o rngs.o test_helpers.o
-	gcc -g -o randomtestadventurer randomtestadventurer.c dominion.o rngs.o test_helpers.o $(CFLAGS)
+	gcc -g -o randomtestadventurer asserttrue.h asserttrue.c randomtestadventurer.c dominion.o rngs.o test_helpers.o $(CFLAGS)
+	echo "randomtestadventurer.c (Adventurer):" > randomtestadventurer.out
+	./randomtestadventurer >> randomtestadventurer.out
+	gcov -b -c -f dominion.c >> randomtestadventurer.out
+		 
 
 randomtestcard1: randomtestcard1.c dominion.o rngs.o test_helpers.o
 	gcc -g -o randomtestcard1 randomtestcard1.c dominion.o rngs.o test_helpers.o $(CFLAGS)
