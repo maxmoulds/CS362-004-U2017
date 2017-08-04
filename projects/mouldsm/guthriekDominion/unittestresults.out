@@ -1,0 +1,1177 @@
+Unit testing results:
+unittest1.c (buyCard):
+TEST CASE: numBuys = 1, 0 cards in supply, coins < cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 1, 0 cards in supply, coins == cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 1, 0 cards in supply, coins > cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 1, 1 cards in supply, coins < cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 1, 1 cards in supply, coins == cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 1, 1 cards in supply, coins > cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 1, 2 cards in supply, coins < cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 1, 2 cards in supply, coins == cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 1, 2 cards in supply, coins > cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 2, 0 cards in supply, coins < cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 2, 0 cards in supply, coins == cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 2, 0 cards in supply, coins > cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 2, 1 cards in supply, coins < cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 2, 1 cards in supply, coins == cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 2, 1 cards in supply, coins > cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 2, 2 cards in supply, coins < cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 2, 2 cards in supply, coins == cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 2, 2 cards in supply, coins > cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 3, 0 cards in supply, coins < cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 3, 0 cards in supply, coins == cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 3, 0 cards in supply, coins > cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 3, 1 cards in supply, coins < cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 3, 1 cards in supply, coins == cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 3, 1 cards in supply, coins > cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 3, 2 cards in supply, coins < cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 3, 2 cards in supply, coins == cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+TEST CASE: numBuys = 3, 2 cards in supply, coins > cost.
+PASS: Test number of buys available
+PASS: Test number of coins remaining
+PASS: Test supply count for Village card
+PASS Test card at top of discard pile
+PASS Test number of cards in discard pile
+
+File 'dominion.c'
+Lines executed:19.62% of 586
+Branches executed:25.06% of 415
+Taken at least once:14.70% of 415
+Calls executed:12.00% of 100
+Creating 'dominion.c.gcov'
+
+
+unittest2.c (gainCard):
+TEST CASE: Card #13, empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #13, empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #13, empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #13, non-empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #13, non-empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #13, non-empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #7, empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #7, empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #7, empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #7, non-empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #7, non-empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #7, non-empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #14, empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #14, empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #14, empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #14, non-empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #14, non-empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #14, non-empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #11, empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #11, empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #11, empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #11, non-empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #11, non-empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #11, non-empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #8, empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #8, empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #8, empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #8, non-empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #8, non-empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #8, non-empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #21, empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #21, empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #21, empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #21, non-empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #21, non-empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #21, non-empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #23, empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #23, empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #23, empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #23, non-empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #23, non-empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #23, non-empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #17, empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #17, empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #17, empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #17, non-empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #17, non-empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #17, non-empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #18, empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #18, empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #18, empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #18, non-empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #18, non-empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #18, non-empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #22, empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #22, empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #22, empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #22, non-empty supply,  card to discard.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #22, non-empty supply,  card to deck.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+TEST CASE: Card #22, non-empty supply,  card to hand.
+PASS: Test first player discard count
+PASS: Test first player deck count
+PASS: Test first player hand count
+PASS: Test second player discard count
+PASS: Test second player deck count
+PASS: Test second player hand count
+
+File 'dominion.c'
+Lines executed:20.48% of 586
+Branches executed:25.06% of 415
+Taken at least once:15.42% of 415
+Calls executed:12.00% of 100
+Creating 'dominion.c.gcov'
+
+
+unittest3.c (cardCost):
+PASS: Cost of card #0
+PASS: Cost of card #1
+PASS: Cost of card #2
+PASS: Cost of card #3
+PASS: Cost of card #4
+PASS: Cost of card #5
+PASS: Cost of card #6
+PASS: Cost of card #7
+PASS: Cost of card #8
+PASS: Cost of card #9
+PASS: Cost of card #10
+PASS: Cost of card #11
+PASS: Cost of card #12
+PASS: Cost of card #13
+PASS: Cost of card #14
+PASS: Cost of card #15
+PASS: Cost of card #16
+PASS: Cost of card #17
+PASS: Cost of card #18
+PASS: Cost of card #19
+PASS: Cost of card #20
+PASS: Cost of card #21
+PASS: Cost of card #22
+PASS: Cost of card #23
+PASS: Cost of card #24
+PASS: Cost of card #25
+PASS: Cost of card #26
+PASS: Negative numbered card (return -1)
+PASS: Out of range card (return -1)
+File 'dominion.c'
+Lines executed:25.09% of 586
+Branches executed:25.06% of 415
+Taken at least once:21.93% of 415
+Calls executed:12.00% of 100
+Creating 'dominion.c.gcov'
+
+
+unittest4.c (compare):
+ALL COMPARE TEST CASES PASSED
+File 'dominion.c'
+Lines executed:25.26% of 586
+Branches executed:25.06% of 415
+Taken at least once:22.17% of 415
+Calls executed:12.00% of 100
+Creating 'dominion.c.gcov'
+
+
+cardtest1.c (Smithy):
+Testing Smithy mechanics with more than 3 cards in deck.
+PASS: Hand count is correct (8 == 8)
+PASS: Deck count is correct (2 == 2)
+FAIL: Played card count is correct (1 == 0)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Testing Smithy mechanics with exactly 3 cards in deck.
+PASS: Hand count is correct (8 == 8)
+PASS: Deck count is correct (0 == 0)
+FAIL: Played card count is correct (1 == 0)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Testing Smithy mechanics with less than 3 cards in deck.
+PASS: Hand count is correct (7 == 7)
+PASS: Deck count is correct (0 == 0)
+FAIL: Played card count is correct (1 == 0)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Testing Smithy mechanics with 0 cards in deck.
+PASS: Hand count is correct (5 == 5)
+PASS: Deck count is correct (0 == 0)
+FAIL: Played card count is correct (1 == 0)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+File 'dominion.c'
+Lines executed:29.86% of 586
+Branches executed:27.95% of 415
+Taken at least once:24.58% of 415
+Calls executed:16.00% of 100
+Creating 'dominion.c.gcov'
+
+
+cardtest2.c (Great Hall):
+Testing Great Hall mechanics with more than 1 card in deck.
+PASS: Hand count is correct (6 == 6)
+PASS: Deck count is correct (4 == 4)
+PASS: Played card count is correct (1 == 1)
+PASS: Discard count is correct (0 == 0)
+PASS: Number of actions is correct (2 == 2)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+PASS: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Testing Great Hall mechanics with exactly 1 cards in deck.
+PASS: Hand count is correct (6 == 6)
+PASS: Deck count is correct (0 == 0)
+PASS: Played card count is correct (1 == 1)
+PASS: Discard count is correct (0 == 0)
+PASS: Number of actions is correct (2 == 2)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+PASS: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Testing Great Hall mechanics with 0 cards in deck.
+PASS: Hand count is correct (5 == 5)
+PASS: Deck count is correct (0 == 0)
+PASS: Played card count is correct (1 == 1)
+PASS: Discard count is correct (0 == 0)
+PASS: Number of actions is correct (2 == 2)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+PASS: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+File 'dominion.c'
+Lines executed:32.25% of 586
+Branches executed:33.98% of 415
+Taken at least once:25.78% of 415
+Calls executed:19.00% of 100
+Creating 'dominion.c.gcov'
+
+
+cardtest3.c (Council Room):
+
+Case 1 -- Player #0: > 4 cards. Player #1: > 1 card.
+FAIL: Hand count is correct (9 == 10)
+FAIL: Deck count is correct (1 == 0)
+PASS: Played card count is correct (1 == 1)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+PASS: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (2 == 2)
+
+Case 2 -- Player #0: == 4 cards. Player #1: > 1 card.
+PASS: Hand count is correct (9 == 9)
+PASS: Deck count is correct (0 == 0)
+PASS: Played card count is correct (1 == 1)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+PASS: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (2 == 2)
+
+Case 3 -- Player #0: < 4 cards. Player #1: > 1 card.
+PASS: Hand count is correct (7 == 7)
+PASS: Deck count is correct (0 == 0)
+PASS: Played card count is correct (1 == 1)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+PASS: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (2 == 2)
+
+Case 4 -- Player #0: == 0 cards. Player #1: > 1 card.
+PASS: Hand count is correct (5 == 5)
+PASS: Deck count is correct (0 == 0)
+PASS: Played card count is correct (1 == 1)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+PASS: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (2 == 2)
+
+Case 5 -- Player #0: > 4 cards. Player #1: == 1 card.
+FAIL: Hand count is correct (9 == 10)
+FAIL: Deck count is correct (1 == 0)
+PASS: Played card count is correct (1 == 1)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+PASS: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (2 == 2)
+
+Case 6 -- Player #0: == 4 cards. Player #1: == 1 card.
+PASS: Hand count is correct (9 == 9)
+PASS: Deck count is correct (0 == 0)
+PASS: Played card count is correct (1 == 1)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+PASS: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (2 == 2)
+
+Case 7 -- Player #0: < 4 cards. Player #1: == 1 card.
+PASS: Hand count is correct (7 == 7)
+PASS: Deck count is correct (0 == 0)
+PASS: Played card count is correct (1 == 1)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+PASS: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (2 == 2)
+
+Case 8 -- Player #0: == 0 cards. Player #1: == 1 card.
+PASS: Hand count is correct (5 == 5)
+PASS: Deck count is correct (0 == 0)
+PASS: Played card count is correct (1 == 1)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+PASS: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (2 == 2)
+
+Case 9 -- Player #0: > 4 cards. Player #1: == 0 cards.
+FAIL: Hand count is correct (9 == 10)
+FAIL: Deck count is correct (1 == 0)
+PASS: Played card count is correct (1 == 1)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+PASS: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (2 == 2)
+
+Case 10 -- Player #0: == 4 cards. Player #1: == 0 cards.
+PASS: Hand count is correct (9 == 9)
+PASS: Deck count is correct (0 == 0)
+PASS: Played card count is correct (1 == 1)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+PASS: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (2 == 2)
+
+Case 11 -- Player #0: < 4 cards. Player #1: == 0 cards.
+PASS: Hand count is correct (7 == 7)
+PASS: Deck count is correct (0 == 0)
+PASS: Played card count is correct (1 == 1)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+PASS: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (2 == 2)
+
+Case 12 -- Player #0: == 0 cards. Player #1: == 0 cards.
+PASS: Hand count is correct (5 == 5)
+PASS: Deck count is correct (0 == 0)
+PASS: Played card count is correct (1 == 1)
+PASS: Discard count is correct (0 == 0)
+PASS: Player hands contain correct cards
+PASS: Player decks contain correct cards
+PASS: Played cards pile contains correct cards
+PASS: Player discards contain correct cards
+PASS: Number of actions is correct (1 == 1)
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (2 == 2)
+File 'dominion.c'
+Lines executed:33.96% of 586
+Branches executed:34.94% of 415
+Taken at least once:26.75% of 415
+Calls executed:23.00% of 100
+Creating 'dominion.c.gcov'
+
+
+cardtest4.c (Adventurer):
+
+Case 1 -- 3 deck treasure, 3 discard treasure.
+FAIL: Hand count is correct (7 == 9)
+FAIL: Deck + discard count is correct (14 == 13)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+FAIL: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Case 2 -- 3 deck treasure, 2 discard treasure.
+FAIL: Hand count is correct (7 == 9)
+FAIL: Deck + discard count is correct (13 == 12)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+FAIL: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Case 3 -- 3 deck treasure, 1 discard treasure.
+FAIL: Hand count is correct (7 == 9)
+FAIL: Deck + discard count is correct (12 == 11)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+FAIL: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Case 4 -- 3 deck treasure, 0 discard treasure.
+FAIL: Hand count is correct (7 == 9)
+FAIL: Deck + discard count is correct (11 == 10)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+FAIL: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Case 5 -- 2 deck treasure, 3 discard treasure.
+FAIL: Hand count is correct (7 == 9)
+FAIL: Deck + discard count is correct (13 == 12)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+FAIL: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Case 6 -- 2 deck treasure, 2 discard treasure.
+FAIL: Hand count is correct (7 == 9)
+FAIL: Deck + discard count is correct (12 == 11)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+FAIL: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Case 7 -- 2 deck treasure, 1 discard treasure.
+FAIL: Hand count is correct (7 == 9)
+FAIL: Deck + discard count is correct (11 == 10)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+FAIL: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Case 8 -- 2 deck treasure, 0 discard treasure.
+FAIL: Hand count is correct (7 == 8)
+PASS: Deck + discard count is correct (10 == 10)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+FAIL: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Case 9 -- 1 deck treasure, 3 discard treasure.
+FAIL: Hand count is correct (7 == 9)
+FAIL: Deck + discard count is correct (12 == 11)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+FAIL: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Case 10 -- 1 deck treasure, 2 discard treasure.
+FAIL: Hand count is correct (7 == 9)
+FAIL: Deck + discard count is correct (11 == 10)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+FAIL: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Case 11 -- 1 deck treasure, 1 discard treasure.
+FAIL: Hand count is correct (7 == 8)
+PASS: Deck + discard count is correct (10 == 10)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+FAIL: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Case 12 -- 1 deck treasure, 0 discard treasure.
+FAIL: Hand count is correct (6 == 7)
+PASS: Deck + discard count is correct (10 == 10)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+FAIL: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Case 13 -- 0 deck treasure, 3 discard treasure.
+FAIL: Hand count is correct (7 == 9)
+FAIL: Deck + discard count is correct (11 == 10)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+FAIL: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Case 14 -- 0 deck treasure, 2 discard treasure.
+FAIL: Hand count is correct (7 == 8)
+PASS: Deck + discard count is correct (10 == 10)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+FAIL: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Case 15 -- 0 deck treasure, 1 discard treasure.
+FAIL: Hand count is correct (6 == 7)
+PASS: Deck + discard count is correct (10 == 10)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+FAIL: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+
+Case 16 -- 0 deck treasure, 0 discard treasure.
+FAIL: Hand count is correct (5 == 4)
+FAIL: Deck + discard count is correct (10 == 12)
+FAIL: Played card count is correct (1 == 0)
+PASS: Number of actions is correct (1 == 1)
+PASS: Player hands contain correct cards
+FAIL: Played cards pile contains correct cards
+PASS: Number of coins is correct (4 == 4)
+PASS: Number of buys is correct (1 == 1)
+File 'dominion.c'
+Lines executed:38.05% of 586
+Branches executed:37.83% of 415
+Taken at least once:29.64% of 415
+Calls executed:26.00% of 100
+Creating 'dominion.c.gcov'
+
+
