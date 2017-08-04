@@ -39,18 +39,18 @@ char * CARD_STRING[] =
 
 int asserttrue(int a, int b, char * str) {
   if (a != b) {
-    printf("TEST %d FAILED %d != %d :: %s\n", total+1, a, b, str);
+    printf("TEST %d FAILED %d != %d :: %s\n", (total+1), a, b, str);
     total += 1;
     return -1;
   }
   else if (a == b) {
-    printf("TEST %d SUCCESSFULLY PASSED %d == %d :: %s\n", count+1, a, b, str);
+    printf("TEST %d SUCCESSFULLY PASSED %d == %d :: %s\n", (total+1), a, b, str);
     count += 1;
     total += 1;
     return 0;
   } 
   else {
-    printf("TEST %d FAILED ERR :: %s\n", count+1, str);
+    printf("TEST %d FAILED ERR :: %s\n", total+1, str);
     return -2;
   }
 }
