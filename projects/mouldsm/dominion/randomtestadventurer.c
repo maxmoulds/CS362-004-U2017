@@ -8,9 +8,9 @@
  * Treasure cards into your hand and discard the other revealed cards. */
 
 #define MIN_HAND 5
-#define ONE_TURN_GAMES 20
+#define ONE_TURN_GAMES 2
 #define RANDOM_TURN_GAMES 2
-#define RANDOM_GAME_RANDOM_TURNS 10 /* MAX VALUE */
+#define RANDOM_GAME_RANDOM_TURNS 2/* MAX VALUE */
 
 #define IS_TREASURE (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
 
@@ -21,6 +21,8 @@ int count = 0;
 int main() {
   int numPlayers = 2; //? test this?
   struct gameState state; // no
+  struct gameState ref;
+  struct gameState run2;
   int randomSeed = 1; //hmm
   srand(time(NULL));
   int kingdomCards[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse, sea_hag, tribute, smithy};
@@ -35,43 +37,28 @@ int main() {
   int bonus = 0;
   int temp = state.handCount[0];
 
-  //iterate game state here
-
-  /* building game state */
-  asserttrue(0, ( initializeGame(numPlayers, kingdomCards, randomSeed, &state) ), "InitilizeGame called");
-  /* copy to test */
-  struct gameState ref; 
-  //memcpy(&ref, &state, sizeof(struct gameState));
+  asserttrue(0, ( initializeGame(numPlayers, kingdomCards, randomSeed, &state) ), "InitilizeGame called, state");
+  asserttrue(0, ( initializeGame(numPlayers, kingdomCards, randomSeed, &run2) ), "InitilizeGame called, run2");
+  //asserttrue(0, ( initializeGame(numPlayers, kingdomCards, randomSeed, &ref) ), "InitilizeGame called, ref");
+  
   drawntreasure = 0;
+  
   asserttrue(state.handCount[0], MIN_HAND , "(state.handcount, #ofcards in min hand?), hmm");
-  //iterate advernture tests here. 
-  /*testing adventure */
   state.hand[0][0] = card;
   state.hand[1][0] = card;
+  run2.hand[0][0] = card;
+  run2.hand[1][0] = card;
+
   temp = state.handCount[0];
   
   asserttrue(state.numPlayers, numPlayers, "(state.numplayers, numplayers), still numplayer issue");
   
   memcpy(&ref, &state, sizeof(struct gameState)); /* hmm resulted in this */
   
-  asserttrue(sizeof(struct gameState), sizeof(ref), "(sizeof(gamestate), sizeof(ref))");
-  asserttrue(sizeof(ref), sizeof(state), "(sizeof(ref), sizeof(state))");
-  
-  cardAdventurer(card, choice1, choice2, choice3, &state, handPos, &bonus);
-  
-  asserttrue(state.numPlayers, numPlayers, "why is numplayers not matching");
-  /* this is just a simple test... */
-  asserttrue(state.handCount[0], temp+3, "Checking handcount for first play is true"); /* should fail, because I introduced a game logic bug */
-  /* the game state should be different from the ref */
-  //asserttrue(isequalgamestate(ref, state), 0, "Checking if gamestat structs are still the same, (ref, cur_state)");
-  
-  struct gameState run2;
-  memcpy(&run2, &ref, sizeof(struct gameState));
-  handPos = 0; /*lets force a card at that pos */
-  asserttrue(bonus, 0, "(bonus) should still be 0?");
-  asserttrue(run2.numPlayers, numPlayers, "(run.numplayers, numplayers), whyyy?");
-  cardAdventurer(card, choice1, choice2, choice3, &run2, handPos, &bonus);
-  asserttrue(isequalgamestate(run2, state), 0, "Checking if gamestat structs are still the same, (2nd run, and 1st run)");
+  cardAdventurer(card, choice1, choice2, choice3, &state, 0, &bonus);
+  cardAdventurer(card, choice1, choice2, choice3, &run2, 0, &bonus);
+  asserttrue(run2.supplyCount[0], state.supplyCount[0], "hmm checking manually supply count?");
+  asserttrue(isequalgamestate(&run2, &run2), 0, "Checking if gamestat structs are still the same, (2nd run, and 1st run)");
   /* Okay lets loop... dumb looping but, looping */
   int i = 0; /* lets play 20 games, just test the next move as adventrurer */
   struct gameState one_turn_ref1;
@@ -93,9 +80,9 @@ int main() {
     bonus = 0;
     handPos = 0; /* shouldnt need to this but whatevs */
     cardAdventurer(card, choice1, choice2, choice3, &one_turn_ref2, handPos, &bonus);
-    asserttrue(isequalgamestate(one_turn_ref1, one_turn_ref2), 0, "checking one turn to another, i know, why?");
+    asserttrue(isequalgamestate(&one_turn_ref1, &one_turn_ref2), 0, "checking one turn to another, i know, why?");
   }
-  asserttrue(i, ONE_TURN_GAMES-1, "did we complete the one_turn_games?");
+  asserttrue(i, ONE_TURN_GAMES, "did we complete the one_turn_games?");
   memcpy(&one_turn_ref1, &ref, sizeof(struct gameState));
   memcpy(&one_turn_ref2, &ref, sizeof(struct gameState)); 
   int j = 0;
@@ -116,7 +103,7 @@ int main() {
     }
     /* now check */
     asserttrue(rando, j, "(rando # of turns, actual turn iter count)");
-    asserttrue(isequalgamestate(one_turn_ref1, one_turn_ref2), 0, "checking states after turns");
+    asserttrue(isequalgamestate(&one_turn_ref1, &one_turn_ref2), 0, "checking states after turns");
   }
   //todo:
   //fix asserttrue to add string print
@@ -127,5 +114,6 @@ int main() {
   /*also if the seed changes, i'd hope this test would fail, but....*/
   /* All done, how'd I do? */
   asserttrue(count, total, "(tests passed == total tests) DID WE WIN?");
+  return 0;
 }
 

@@ -11,9 +11,9 @@
 
 
 #define MIN_HAND 5
-#define ONE_TURN_GAMES 20
-#define RANDOM_TURN_GAMES 10
-#define RANDOM_GAME_RANDOM_TURNS 10 /* MAX VALUE */
+#define ONE_TURN_GAMES 2
+#define RANDOM_TURN_GAMES 2
+#define RANDOM_GAME_RANDOM_TURNS 2 /* MAX VALUE */
 
 #define IS_TREASURE (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
 
@@ -73,7 +73,7 @@ int main() {
   asserttrue(bonus, 0, "(bonus) should still be 0?");
   asserttrue(run2.numPlayers, numPlayers, "(run.numplayers, numplayers), whyyy?");
   cardSmithy(card, choice1, choice2, choice3, &run2, handPos, &bonus);
-  asserttrue(isequalgamestate(run2, state), 0, "Checking if gamestat structs are still the same, (2nd run, and 1st run)");
+  asserttrue(isequalgamestate(&run2, &state), 0, "Checking if gamestat structs are still the same, (2nd run, and 1st run)");
   /* Okay lets loop... dumb looping but, looping */
   int i = 0; /* lets play 20 games, just test the next move as smithy */
   struct gameState one_turn_ref1;
@@ -95,9 +95,9 @@ int main() {
     bonus = 0;
     handPos = 0; /* shouldnt need to this but whatevs */
     cardCouncilRoom(card, choice1, choice2, choice3, &one_turn_ref2, handPos, &bonus);
-    asserttrue(isequalgamestate(one_turn_ref1, one_turn_ref2), 0, "checking one turn to another, i know, why?");
+    asserttrue(isequalgamestate(&one_turn_ref1, &one_turn_ref2), 0, "checking one turn to another, i know, why?");
   }
-  asserttrue(i, ONE_TURN_GAMES-1, "did we complete the one_turn_games?");
+  asserttrue(i, ONE_TURN_GAMES, "did we complete the one_turn_games?");
   memcpy(&one_turn_ref1, &ref, sizeof(struct gameState));
   memcpy(&one_turn_ref2, &ref, sizeof(struct gameState)); 
   int j = 0;
@@ -118,7 +118,7 @@ int main() {
     }
     /* now check */
     asserttrue(rando, j, "(rando # of turns, actual turn iter count)");
-    asserttrue(isequalgamestate(one_turn_ref1, one_turn_ref2), 0, "checking states after turns");
+    asserttrue(isequalgamestate(&one_turn_ref1, &one_turn_ref2), 0, "checking states after turns");
   }
   //todo:
   //fix asserttrue to add string print
@@ -129,5 +129,6 @@ int main() {
   /*also if the seed changes, i'd hope this test would fail, but....*/
   /* All done, how'd I do? */
   asserttrue(count, total, "(tests passed == total tests) DID WE WIN?");
+  return 0;
 }
 

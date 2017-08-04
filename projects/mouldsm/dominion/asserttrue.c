@@ -59,11 +59,11 @@ int isequalgamestate(struct gameState *one, struct gameState *two) {
   if (one == NULL || two == NULL) {
     return -1;
   }
-  if (asserttrue(one->numPlayers, two->numPlayers, "Number of players (in isequal)") == 0) {
+  if (asserttrue(one->numPlayers, two->numPlayers, "Number of players (in isequal)") != 0) {
     return -1;
   }
   int i = 0;
-  int ret = -1;
+  int ret = 0;
   for (i = 0, ret = 0; i < treasure_map+1; i++) {;
     if (asserttrue(one->supplyCount[i], two->supplyCount[i], "(num of cards in deck) testing supply count") == 0) {
       asserttrue(one->supplyCount[i], two->supplyCount[i], CARD_STRING[i]); 
@@ -95,13 +95,13 @@ int isequalgamestate(struct gameState *one, struct gameState *two) {
   if (asserttrue(one->numActions, two->numActions, "NumActions") != 0) {
     ret = -1; 
   }
-  if (asserttrue(one->coins, two->coins, "coins") == 0) {
+  if (asserttrue(one->coins, two->coins, "coins") != 0) {
     return -1; 
   }
   else {
     return 0;
   }
-  return -1;
+  return ret;
 
 }
 
