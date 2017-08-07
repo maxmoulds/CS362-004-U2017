@@ -1,0 +1,36 @@
+One bug report, which should be caught but isn't, at least with the test cases
+submitted for the last assignment, is the number of treasures found in 
+adventurer card. Both my code and his code have the same bug, which is a 
+coincidence. On line 1244 in dominion.c in the playAdventurer function the 
+logic allows for an off by one error resulting in one too many treasure cards 
+to be put into the hand. The new test cases have adjusted for this.  An Example
+is below. 
+
+TEST 239 FAILED 6 != 5 :: (drawntreasure, 2+existing treasures), checking that # of treasures is correct
+TEST 240 FAILED 6 != 5 :: (drawntreasure, 2+existing treasures), checking that # of treasures is correct
+TEST 357 FAILED 6 != 5 :: (drawntreasure, 2+existing treasures), checking that # of treasures is correct
+TEST 358 FAILED 6 != 5 :: (drawntreasure, 2+existing treasures), checking that # of treasures is correct
+
+Another bug surfaced around discarding, and I will not lie, I did not see it 
+until I ran his test against mine. The nature of the bug is that the smithy 
+card after being played is trashed instead of discarded. This removes the card 
+from the game and the deck and ultimately means that the specific instance of 
+that card cannot be played again during the game. When a reshuffle occurs, the
+card will not be added back into the deck. Checking deck counts after a 
+complete game would catch this. 
+
+TEST 7 FAILED 0 != 1 :: checking that playedcards iterated
+TEST 8 FAILED 0 != 13 :: checking that smithy is added to discard
+TEST 130 FAILED 0 != 1 :: checking that playedcards iterated
+TEST 131 FAILED 0 != 13 :: checking that smithy is added to discard
+TEST 133 FAILED 0 != 1 :: checking that playedcards iterated
+TEST 134 FAILED 0 != 13 :: checking that smithy is added to discard
+TEST 252 FAILED 0 != 1 :: checking that playedcards iterated
+TEST 253 FAILED 0 != 13 :: checking that smithy is added to discard
+TEST 255 FAILED 0 != 1 :: checking that playedcards iterated
+TEST 256 FAILED 0 != 13 :: checking that smithy is added to discard
+
+All of these tests were on checking a single turn. Why there are thirteen cards
+already in the discard pile after every single run, even after multiple 
+re-deals, escapes me. Possibly another bug?
+
