@@ -28,7 +28,7 @@ int main() {
   int kingdomCards[10] = {adventurer, gardens, embargo, village, minion, mine, cutpurse, sea_hag, tribute, smithy};
   //initializeGame(numPlayers, kingdomCards, randomSeed, &state);
   int drawntreasure = 0; //used to count how many treasures have been drawn
-
+  int drawntreasure1 = 0;
   int card = adventurer;
   int choice1 = -1;
   int choice2 = -1;
@@ -36,13 +36,13 @@ int main() {
   int handPos = 0;
   int bonus = 0;
   int temp = state.handCount[0];
-
+  int cardDrawn = 0;
   asserttrue(0, ( initializeGame(numPlayers, kingdomCards, randomSeed, &state) ), "InitilizeGame called, state");
   asserttrue(0, ( initializeGame(numPlayers, kingdomCards, randomSeed, &run2) ), "InitilizeGame called, run2");
   //asserttrue(0, ( initializeGame(numPlayers, kingdomCards, randomSeed, &ref) ), "InitilizeGame called, ref");
-  
+
   drawntreasure = 0;
-  
+
   asserttrue(state.handCount[0], MIN_HAND , "(state.handcount, #ofcards in min hand?), hmm");
   state.hand[0][0] = card;
   state.hand[1][0] = card;
@@ -50,11 +50,11 @@ int main() {
   run2.hand[1][0] = card;
 
   temp = state.handCount[0];
-  
+
   asserttrue(state.numPlayers, numPlayers, "(state.numplayers, numplayers), still numplayer issue");
-  
+
   memcpy(&ref, &state, sizeof(struct gameState)); /* hmm resulted in this */
-  
+
   cardAdventurer(card, choice1, choice2, choice3, &state, 0, &bonus);
   cardAdventurer(card, choice1, choice2, choice3, &run2, 0, &bonus);
   asserttrue(run2.supplyCount[0], state.supplyCount[0], "hmm checking manually supply count?");
@@ -71,9 +71,31 @@ int main() {
   asserttrue(ref.numPlayers, numPlayers, "(ref.numplayers, numplayers), because idk");
   memcpy(&one_turn_ref1, &ref, sizeof(struct gameState));
   memcpy(&one_turn_ref2, &ref, sizeof(struct gameState));
+  //count treasures
+  int existing_treasures =0; 
+  int existing_treasures1 = 0;
+  int km = 0;
+  for (km = 0; km < one_turn_ref1.handCount[0]; km++)
+  {   
+    cardDrawn = one_turn_ref1.hand[0][km];
+    if (IS_TREASURE)
+    {   
+      existing_treasures++;
+    }   
+  }
+  for (km = 0; km < one_turn_ref1.handCount[0]; km++)
+  {   
+    cardDrawn = one_turn_ref1.hand[0][km];
+    if (IS_TREASURE)
+    {   
+      existing_treasures1++;
+    }   
+  }
+  int kl = 0;
   for (i = 0; i < ONE_TURN_GAMES; i++) {
     /* build turn */
     drawntreasure = 0;
+    drawntreasure1 = 0;
     bonus = 0;
     handPos = 0;
     cardAdventurer(card, choice1, choice2, choice3, &one_turn_ref1, handPos, &bonus);
@@ -81,6 +103,24 @@ int main() {
     handPos = 0; /* shouldnt need to this but whatevs */
     cardAdventurer(card, choice1, choice2, choice3, &one_turn_ref2, handPos, &bonus);
     asserttrue(isequalgamestate(&one_turn_ref1, &one_turn_ref2), 0, "checking one turn to another, i know, why?");
+    for (kl = 0; kl < one_turn_ref1.handCount[0]; kl++)
+    {
+      cardDrawn = one_turn_ref1.hand[0][kl];
+      if (IS_TREASURE)
+      {
+        drawntreasure++;
+      }
+    }
+    asserttrue(drawntreasure, (2+existing_treasures), "(drawntreasure, 2+existing treasures), checking that # of treasures is correct");
+    for (kl = 0; kl < one_turn_ref2.handCount[0]; kl++)
+    {   
+      cardDrawn = one_turn_ref2.hand[0][kl];
+      if (IS_TREASURE)
+      {  
+        drawntreasure1++;
+      } 
+    }
+    asserttrue(drawntreasure1, (2+existing_treasures1), "(drawntreasure, 2+existing treasures), checking that # of treasures is correct");
   }
   asserttrue(i, ONE_TURN_GAMES, "did we complete the one_turn_games?");
   memcpy(&one_turn_ref1, &ref, sizeof(struct gameState));

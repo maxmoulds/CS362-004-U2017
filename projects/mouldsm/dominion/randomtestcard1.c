@@ -1,4 +1,4 @@
-/* random test for adventurer */
+/* random test for CouncilRoom */
 #include "asserttrue.h"
 #include "dominion.h"
 #include <string.h>
@@ -51,28 +51,29 @@ int main() {
   state.hand[0][0] = card;
   state.hand[1][0] = card;
   temp = state.handCount[0];
-  
+
   asserttrue(state.numPlayers, numPlayers, "(state.numplayers, numplayers), still numplayer issue");
-  
+
   memcpy(&ref, &state, sizeof(struct gameState)); /* hmm resulted in this */
-  
+
   asserttrue(sizeof(struct gameState), sizeof(ref), "(sizeof(gamestate), sizeof(ref))");
   asserttrue(sizeof(ref), sizeof(state), "(sizeof(ref), sizeof(state))");
-  
-  cardAdventurer(card, choice1, choice2, choice3, &state, handPos, &bonus);
-  
+  int player2handcount_ref = state.handCount[1]; 
+  cardCouncilRoom(card, choice1, choice2, choice3, &state, handPos, &bonus);
+  //check that all players draw cards. 
+  asserttrue(state.handCount[1], player2handcount_ref+1, "(state.handcount[1], player2handcount+1), check that player 2 recieved a card");
   asserttrue(state.numPlayers, numPlayers, "why is numplayers not matching");
   /* this is just a simple test... */
   asserttrue(state.handCount[0], temp+3, "Checking handcount for first play is true"); /* should fail, because I introduced a game logic bug */
   /* the game state should be different from the ref */
   //asserttrue(isequalgamestate(ref, state), 0, "Checking if gamestat structs are still the same, (ref, cur_state)");
-  
+
   struct gameState run2;
   memcpy(&run2, &ref, sizeof(struct gameState));
   handPos = 0; /*lets force a card at that pos */
   asserttrue(bonus, 0, "(bonus) should still be 0?");
   asserttrue(run2.numPlayers, numPlayers, "(run.numplayers, numplayers), whyyy?");
-  cardAdventurer(card, choice1, choice2, choice3, &run2, handPos, &bonus);
+  cardCouncilRoom(card, choice1, choice2, choice3, &run2, handPos, &bonus);
   asserttrue(isequalgamestate(&run2, &state), 0, "Checking if gamestat structs are still the same, (2nd run, and 1st run)");
   /* Okay lets loop... dumb looping but, looping */
   int i = 0; /* lets play 20 games, just test the next move as adventrurer */
@@ -91,7 +92,7 @@ int main() {
     drawntreasure = 0;
     bonus = 0;
     handPos = 0;
-    cardAdventurer(card, choice1, choice2, choice3, &one_turn_ref1, handPos, &bonus);
+    cardCouncilRoom(card, choice1, choice2, choice3, &one_turn_ref1, handPos, &bonus);
     bonus = 0;
     handPos = 0; /* shouldnt need to this but whatevs */
     cardCouncilRoom(card, choice1, choice2, choice3, &one_turn_ref2, handPos, &bonus);

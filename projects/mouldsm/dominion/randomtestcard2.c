@@ -58,8 +58,13 @@ int main() {
   
   asserttrue(sizeof(struct gameState), sizeof(ref), "(sizeof(gamestate), sizeof(ref))");
   asserttrue(sizeof(ref), sizeof(state), "(sizeof(ref), sizeof(state))");
-  
+  int discard_ref = state.discardCount[0];
+  int playedCards_ref = state.playedCardCount;
   cardSmithy(card, choice1, choice2, choice3, &state, handPos, &bonus);
+  //check that smithy is now in the discard. 
+  asserttrue(state.discardCount[0], discard_ref, "checking discard count");
+  asserttrue(state.playedCardCount, (playedCards_ref+1), "checking that playedcards iterated");
+  asserttrue(state.playedCards[(state.playedCardCount-1)], smithy, "checking that smithy is added to discard");
   
   asserttrue(state.numPlayers, numPlayers, "why is numplayers not matching");
   /* this is just a simple test... */
@@ -94,7 +99,7 @@ int main() {
     cardSmithy(card, choice1, choice2, choice3, &one_turn_ref1, handPos, &bonus);
     bonus = 0;
     handPos = 0; /* shouldnt need to this but whatevs */
-    cardCouncilRoom(card, choice1, choice2, choice3, &one_turn_ref2, handPos, &bonus);
+    cardSmithy(card, choice1, choice2, choice3, &one_turn_ref2, handPos, &bonus);
     asserttrue(isequalgamestate(&one_turn_ref1, &one_turn_ref2), 0, "checking one turn to another, i know, why?");
   }
   asserttrue(i, ONE_TURN_GAMES, "did we complete the one_turn_games?");
@@ -110,10 +115,10 @@ int main() {
       drawntreasure = 0;
       bonus = 0;
       handPos = 0;
-      cardCouncilRoom(card, choice1, choice2, choice3, &one_turn_ref1, handPos, &bonus);
+      cardSmithy(card, choice1, choice2, choice3, &one_turn_ref1, handPos, &bonus);
       bonus = 0;
       handPos = 0; /* shouldnt need to this but whatevs */
-      cardCouncilRoom(card, choice1, choice2, choice3, &one_turn_ref2, handPos, &bonus);
+      cardSmithy(card, choice1, choice2, choice3, &one_turn_ref2, handPos, &bonus);
       //asserttrue(isequalgamestate(one_turn_run1, one_turn_ref2), 0, "checking one turn to another"
     }
     /* now check */

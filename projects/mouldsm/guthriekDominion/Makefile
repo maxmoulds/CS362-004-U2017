@@ -1,4 +1,6 @@
-CFLAGS = -Wall -fpic -coverage -lm -std=c99
+CFLAGS = -Wno-implicit -fpic -coverage -lm
+
+SHELL:=/bin/bash
 
 rngs.o: rngs.h rngs.c
 	gcc -c rngs.c -g  $(CFLAGS)
@@ -29,111 +31,70 @@ runtests: testDrawCard
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 
+unittestresults.out: all
+	rm -f unittestresults.out
+	$(foreach a, $(Tests), gcc -o testing asserttrue.c $(a) -g dominion.o rngs.o $(CFLAGS) ; \
+	./testing &> unittestresults.out ;)
+	gcov dominion.c >> unittestresults.out
+	cat dominion.c.gcov >> unittestresults.out
+	echo $(Tests)
+
+#Tests = cardtest4.c
+
+Tests:=$(shell ls  | egrep '*test[0-9]+.c' | sort -n  )
+
+asserttrue.o: asserttrue.h asserttrue.c
+		gcc -c asserttrue.c -g $(CFLAGS)
+
+randomtestcard1: randomtestcard1.c dominion.o rngs.o asserttrue.o
+	gcc -o randomtestcard1 -g randomtestcard1.c dominion.o rngs.o asserttrue.o $(CFLAGS)
+
+randomtestcard2: randomtestcard2.c dominion.o rngs.o asserttrue.o
+	gcc -o randomtestcard2 -g randomtestcard2.c dominion.o rngs.o asserttrue.o $(CFLAGS)
+
+randomtestadventurer: randomtestadventurer.c dominion.o rngs.o asserttrue.o
+	gcc -o randomtestadventurer -g randomtestadventurer.c dominion.o rngs.o asserttrue.o $(CFLAGS)
+
+randomtestcard1.out: randomtestcard1
+	./randomtestcard1 >> randomtestcard1.out
+	gcov -c -b randomtestcard1.c >> randomtestcard1.out
+	cat randomtestcard1.c.gcov >> randomtestcard1.out
+
+randomtestcard2.out: randomtestcard2
+	./randomtestcard2 >> randomtestcard2.out
+	gcov -c -b randomtestcard2.c >> randomtestcard2.out
+	cat randomtestcard2.c.gcov >> randomtestcard2.out
+
+randomtestadventurer.out: randomtestadventurer
+	./randomtestadventurer >> randomtestadventurer.out
+	gcov -c -b randomtestadventurer.c >> randomtestadventurer.out
+	cat randomtestadventurer.c.gcov >> randomtestadventurer.out
+
+randomtester0: randomtestadventurer randomtestadventurer.out
+	@echo "COMPILING & RUNNING ADVENTURER TESTS"
+
+randomtester1: randomtestcard1 randomtestcard1.out
+	@echo "COMPILING & RUNNING COUNCIL ROOM TESTS"
+
+randomtester2: randomtestcard2 randomtestcard2.out
+	@echo "COMPILING & RUNNING SMITHY TESTS"
+
+randomtestall: randomtester0 randomtester1 randomtester2
+	@echo "COMPILING ALL RANDOM TESTER"
+
+#I was planning on making a one command to rule them all but...
+#time -p bash -c 'make clean && make randomtester0 && tail -n $(($(cat randomtestadventurer.c.gcov | wc -l)+15)) randomtestadventurer.out | head'
+#time -p bash -c 'make clean && make randomtester1 && tail -n $(($(cat randomtestcard1.c.gcov | wc -l)+15)) randomtestcard1.out | head'
+#time -p bash -c 'make clean && make randomtester2 && tail -n $(($(cat randomtestcard2.c.gcov | wc -l)+15)) randomtestcard2.out | head'
+
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
-
-test_helpers.o: test_helpers.h test_helpers.c
-	gcc -c test_helpers.c -g $(CFLAGS)
-
-unittest1: unittest1.c dominion.o rngs.o test_helpers.o
-	gcc -g -o unittest1 unittest1.c dominion.o rngs.o test_helpers.o $(CFLAGS)
-
-unittest2: unittest2.c dominion.o rngs.o test_helpers.o
-	gcc -g -o unittest2 unittest2.c dominion.o rngs.o test_helpers.o $(CFLAGS)
-
-unittest3: unittest3.c dominion.o rngs.o test_helpers.o
-	gcc -g -o unittest3 unittest3.c dominion.o rngs.o test_helpers.o $(CFLAGS)
-
-unittest4: unittest4.c dominion.o rngs.o
-	gcc -g -o unittest4 unittest4.c dominion.o rngs.o $(CFLAGS)
-
-cardtest1: cardtest1.c dominion.o rngs.o test_helpers.o
-	gcc -g -o cardtest1 cardtest1.c dominion.o rngs.o test_helpers.o $(CFLAGS)
-
-cardtest2: cardtest2.c dominion.o rngs.o test_helpers.o
-	gcc -g -o cardtest2 cardtest2.c dominion.o rngs.o test_helpers.o $(CFLAGS)
-
-cardtest3: cardtest3.c dominion.o rngs.o test_helpers.o
-	gcc -g -o cardtest3 cardtest3.c dominion.o rngs.o test_helpers.o $(CFLAGS)
-
-cardtest4: cardtest4.c dominion.o rngs.o test_helpers.o
-	gcc -g -o cardtest4 cardtest4.c dominion.o rngs.o test_helpers.o $(CFLAGS)
-
-randomtestadventurer: randomtestadventurer.c dominion.o rngs.o test_helpers.o
-	gcc -g -o randomtestadventurer asserttrue.h asserttrue.c randomtestadventurer.c dominion.o rngs.o test_helpers.o $(CFLAGS)
-	echo "randomtestadventurer.c (Adventurer):" > randomtestadventurer.out
-	./randomtestadventurer >> randomtestadventurer.out
-	gcov -b -c -f dominion.c >> randomtestadventurer.out
-		 
-
-randomtestcard1: randomtestcard1.c dominion.o rngs.o test_helpers.o
-	gcc -g -o randomtestcard1 randomtestcard1.c dominion.o rngs.o test_helpers.o $(CFLAGS)
-
-randomtestcard2: randomtestcard2.c dominion.o rngs.o test_helpers.o
-	gcc -g -o randomtestcard2 randomtestcard2.c dominion.o rngs.o test_helpers.o $(CFLAGS)
-
-
-randomtestresults: randomtestadventurer randomtestcard1 randomtestcard2
-
-	echo "randomtestadventurer.c (Adventurer):" > randomtestadventurer.out
-	./randomtestadventurer >> randomtestadventurer.out
-	gcov -b -c -f dominion.c >> randomtestadventurer.out
-
-	echo "randomtestcard1.c (Smithy):" > randomtestcard1.out
-	./randomtestcard1 >> randomtestcard1.out
-	gcov -b -c -f dominion.c >> randomtestcard1.out
-
-	echo "randomtestcard2.c (Great Hall):" >> randomtestcard2.out
-	./randomtestcard2 >> randomtestcard2.out
-	gcov -b -c -f dominion.c >> randomtestcard2.out
-
-unittestresults.out: unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4
-	echo "Unit testing results:" > unittestresults.out
-	
-	echo "unittest1.c (buyCard):" >> unittestresults.out
-	./unittest1 >> unittestresults.out
-	gcov -b -c dominion.c >> unittestresults.out
-	echo >> unittestresults.out
-
-	echo "unittest2.c (gainCard):" >> unittestresults.out
-	./unittest2 >> unittestresults.out
-	gcov -b -c dominion.c >> unittestresults.out
-	echo >> unittestresults.out
-
-	echo "unittest3.c (cardCost):" >> unittestresults.out
-	./unittest3 >> unittestresults.out
-	gcov -b -c dominion.c >> unittestresults.out
-	echo >> unittestresults.out
-
-	echo "unittest4.c (compare):" >> unittestresults.out
-	./unittest4 >> unittestresults.out
-	gcov -b -c dominion.c >> unittestresults.out
-	echo >> unittestresults.out
-
-	echo "cardtest1.c (Smithy):" >> unittestresults.out
-	./cardtest1 >> unittestresults.out
-	gcov -b -c dominion.c >> unittestresults.out
-	echo >> unittestresults.out
-
-	echo "cardtest2.c (Great Hall):" >> unittestresults.out
-	./cardtest2 >> unittestresults.out
-	gcov -b -c dominion.c >> unittestresults.out
-	echo >> unittestresults.out
-
-	echo "cardtest3.c (Council Room):" >> unittestresults.out
-	./cardtest3 >> unittestresults.out
-	gcov -b -c dominion.c >> unittestresults.out
-	echo >> unittestresults.out
-
-	echo "cardtest4.c (Adventurer):" >> unittestresults.out
-	./cardtest4 >> unittestresults.out
-	gcov -b -c dominion.c >> unittestresults.out
-	echo >> unittestresults.out
 
 all: playdom player testDrawCard testBuyCard badTestDrawCard
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe badTestDrawCard
-	rm -f unittest1 unittest2 unittest3 unittest4
-	rm -f cardtest1 cardtest2 cardtest3 cardtest4
-	rm -f randomtestadventurer randomtestcard1 randomtestcard2
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so testDrawCard testDrawCard.exe
+	rm -f randomtestcard1 randomtestcard2 randomtestadventurer 
+
+cleaner: clean
+	rm -f *.out
